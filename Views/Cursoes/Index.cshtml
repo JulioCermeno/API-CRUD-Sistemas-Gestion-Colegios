@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Api_Web_Crud.Models.Cursos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Horario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horario)
+            </td>
+            <td>
+                    <a asp-action="Editar" class="btn btn-warning" asp-route-id="@item.IdCurso">Edit</a> |
+                    <a asp-action="Consulta" class="btn btn-primary" asp-route-id="@item.IdCurso">Details</a> |
+                    <a asp-action="Borrar" class="btn btn-danger" asp-route-id="@item.IdCurso">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
